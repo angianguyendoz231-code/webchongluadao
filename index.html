@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>TRANG KIỂM TRA LỪA ĐẢO</title>
+    
+    <meta name="description" content="Công cụ kiểm tra tin nhắn nghi ngờ lừa đảo dành cho học sinh. Phát hiện nguy cơ chuyển tiền, OTP, link giả mạo.">
+
+    <meta name="keywords" content="kiểm tra lừa đảo, check lừa đảo online, phát hiện scam, bảo vệ học sinh trên mạng">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1> TRANG KIỂM TRA LỪA ĐẢO</h1>
+        <p>Kiểm tra tin nhắn nghi ngờ lừa đảo</p>
+
+        <textarea id="messageInput" placeholder="Dán nội dung tin nhắn vào đây..."></textarea>
+
+        <button onclick="analyzeMessage()">Phân tích</button>
+
+        <p>Số lần phát hiện nguy cơ cao: <span id="counter">0</span></p>
+
+
+        <div id="result"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
