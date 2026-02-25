@@ -1,4 +1,4 @@
-let dangerCount = 0; 
+let dangerCount = 0;
 
 function removeVietnameseTones(str) {
     return str.normalize("NFD")
@@ -44,27 +44,32 @@ function analyzeMessage() {
 
     let resultText = "";
     let advice = "";
+    let color = "";
 
     if (score >= 3) {
         resultText = "🔴 NGUY CƠ CAO";
-        advice = "❗ Có dấu hiệu lừa đảo. Không chuyển tiền, không cung cấp OTP.";
-        resultDiv.style.color = "red";
-
+        advice = " Có dấu hiệu lừa đảo. Không chuyển tiền, không cung cấp OTP.";
+        color = "red";
         dangerCount++;
         document.getElementById("counter").innerText = dangerCount;
 
     } else if (score >= 1) {
         resultText = "🟡 NGHI NGỜ";
         advice = "⚠️ Tin nhắn có dấu hiệu bất thường. Kiểm tra kỹ trước khi phản hồi.";
-        resultDiv.style.color = "orange";
+        color = "orange";
     } else {
         resultText = "🟢 TẠM THỜI AN TOÀN";
-        advice = "✅ Tuy nhiên vẫn nên cảnh giác.";
-        resultDiv.style.color = "lightgreen";
+        advice = " Tuy nhiên vẫn nên cảnh giác.";
+        color = "lightgreen";
     }
+
+    let percent = Math.min(score * 30, 100);
+
+    resultDiv.style.color = color;
 
     resultDiv.innerHTML = `
         <h2>${resultText}</h2>
+        <p><strong>Tỷ lệ nghi ngờ:</strong> ${percent}%</p>
         <p>${advice}</p>
     `;
 }
